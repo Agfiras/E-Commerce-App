@@ -1,8 +1,7 @@
 import 'package:e_commerce/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-
-import '../../../Sign_in/sign_in-screen.dart';
+import 'package:e_commerce/screens/Sign_in/sign_in-screen.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -54,9 +53,7 @@ class Body extends StatelessWidget {
         ),
       );
 
-  void goHome(context) => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => SignInScreen()),
-      );
+  void goHome(context) => Navigator.pushNamed(context, SignInScreen.routeName);
 
   Widget buildImage(String path) =>
       Center(child: Image.asset(path, width: 350));

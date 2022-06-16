@@ -2,6 +2,7 @@ import 'package:e_commerce/constants.dart';
 import 'package:e_commerce/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/routs.dart';
+import 'Theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,16 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: "Muli",
-        textTheme: const TextTheme(
-          bodyText1: TextStyle(color: kTextColor),
-          bodyText2: TextStyle(color: kTextColor),
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      // home: SplashScreen(),
+      theme: theme(),
       initialRoute: SplashScreen.routeName,
       routes: routes,
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'components/body.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -10,6 +9,7 @@ class SignInScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Sign In"),
       ),
+      body: Body(),
     );
   }
 }
