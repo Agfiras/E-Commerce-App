@@ -37,6 +37,9 @@ dependencies:
   flutter_svg: ^1.1.0
   provider: ^6.0.3
   introduction_screen: ^3.0.2
+  fluttertoast: ^8.0.9
+  shared_preferences: ^2.0.15
+  google_sign_in: ^5.3.3
 
 dev_dependencies:
   flutter_test:
