@@ -5,6 +5,8 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../Home/HomePage.dart';
+
 class SignForm extends StatefulWidget {
   const SignForm({Key? key}) : super(key: key);
 
@@ -13,9 +15,6 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
-  GoogleSignIn googleSignIn = GoogleSignIn(
-      clientId:
-          '49558197843-diml92sb6guhptii0bir9j2trst3hp82.apps.googleusercontent.com');
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   bool _isChecked = false;
@@ -28,7 +27,9 @@ class _SignFormState extends State<SignForm> {
         gravity: ToastGravity.CENTER,
         fontSize: 16.0,
       );
-    } else {}
+    } else {
+      GohomePage(context);
+    }
   }
 
   @override
@@ -148,3 +149,5 @@ class _SignFormState extends State<SignForm> {
     });
   }
 }
+
+void GohomePage(context) => Navigator.pushNamed(context, HomePage.routeName);

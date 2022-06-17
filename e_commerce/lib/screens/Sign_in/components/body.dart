@@ -1,10 +1,17 @@
+import 'package:e_commerce/screens/Home/HomePage.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../../components/socal_card.dart';
 import 'signin_form.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  Body({Key? key}) : super(key: key);
+
+  GoogleSignIn googleSignIn = GoogleSignIn(
+      clientId:
+          '49558197843-diml92sb6guhptii0bir9j2trst3hp82.apps.googleusercontent.com');
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +47,9 @@ class Body extends StatelessWidget {
                   children: [
                     SocalCard(
                       icon: 'assets/icons/google.svg',
-                      press: () {},
+                      press: () {
+                        StartSignin(context);
+                      },
                     ),
                     SocalCard(
                       icon: 'assets/icons/facebook.svg',
@@ -59,5 +68,19 @@ class Body extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void StartSignin(context) async {
+    GoogleSignInAccount? user = await googleSignIn.signIn();
+    if (user == null) {
+      Fluttertoast.showToast(
+        msg: "Both fields cannot be blank",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        fontSize: 16.0,
+      );
+    } else {
+      Navigator.pushNamed(context, HomePage.routeName);
+    }
   }
 }
