@@ -1,3 +1,4 @@
+import 'package:e_commerce/screens/Sign_in/sign_in-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,9 +16,18 @@ class SignForm extends StatefulWidget {
 }
 
 class _SignFormState extends State<SignForm> {
+  GoogleSignIn googleSignIn = GoogleSignIn(
+      clientId:
+          '49558197843-diml92sb6guhptii0bir9j2trst3hp82.apps.googleusercontent.com');
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   bool _isChecked = false;
+
+  // @override
+  // void initState() {
+  //   checkSigninStatut();
+  //   super.initState();
+  // }
 
   Future login(BuildContext context) async {
     if (email.text == "" || password.text == "") {
@@ -148,6 +158,18 @@ class _SignFormState extends State<SignForm> {
       _isChecked = value;
     });
   }
-}
 
-void GohomePage(context) => Navigator.pushNamed(context, HomePage.routeName);
+  // void checkSigninStatut() async {
+  //   await Future.delayed(Duration(seconds: 2));
+  //   bool isSignedIn = await googleSignIn.isSignedIn();
+  //   if (isSignedIn) {
+  //     print('user signed in');
+  //   } else {
+  //     stayinSignin(context);
+  //   }
+  // }
+
+  void GohomePage(BuildContext context) {
+    Navigator.pushNamed(context, HomePage.routeName);
+  }
+}
