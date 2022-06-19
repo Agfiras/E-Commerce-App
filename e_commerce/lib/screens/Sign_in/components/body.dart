@@ -1,3 +1,5 @@
+import 'package:path/path.dart';
+import 'package:e_commerce/Api/googleSignin.dart';
 import 'package:e_commerce/screens/Home/HomePage.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
@@ -70,17 +72,15 @@ class Body extends StatelessWidget {
     );
   }
 
-  void StartSignin(context) async {
-    GoogleSignInAccount? user = await googleSignIn.signIn();
+  Future StartSignin(context) async {
+    final user = await GoogleSigninApi.login();
     if (user == null) {
-      Fluttertoast.showToast(
-        msg: "Both fields cannot be blank",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        fontSize: 16.0,
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Signin Failed')));
     } else {
-      Navigator.pushNamed(context, HomePage.routeName);
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => HomePage(),
+      ));
     }
   }
 }
