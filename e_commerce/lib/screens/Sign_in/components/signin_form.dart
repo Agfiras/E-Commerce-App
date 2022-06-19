@@ -159,16 +159,6 @@ class _SignFormState extends State<SignForm> {
     });
   }
 
-  // void checkSigninStatut() async {
-  //   await Future.delayed(Duration(seconds: 2));
-  //   bool isSignedIn = await googleSignIn.isSignedIn();
-  //   if (isSignedIn) {
-  //     print('user signed in');
-  //   } else {
-  //     stayinSignin(context);
-  //   }
-  // }
-
   void GohomePage(BuildContext context) {
     Navigator.pushNamed(context, HomePage.routeName);
   }

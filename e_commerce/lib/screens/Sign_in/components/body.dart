@@ -1,19 +1,12 @@
-import 'package:path/path.dart';
 import 'package:e_commerce/Api/googleSignin.dart';
 import 'package:e_commerce/screens/Home/HomePage.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import '../../../components/socal_card.dart';
 import 'signin_form.dart';
 
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
-
-  GoogleSignIn googleSignIn = GoogleSignIn(
-      clientId:
-          '49558197843-diml92sb6guhptii0bir9j2trst3hp82.apps.googleusercontent.com');
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +72,7 @@ class Body extends StatelessWidget {
           .showSnackBar(SnackBar(content: Text('Signin Failed')));
     } else {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (context) => HomePage(user: user),
       ));
     }
   }

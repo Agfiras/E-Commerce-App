@@ -6,5 +6,4 @@ import 'package:flutter/widgets.dart';
 final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),
   SignInScreen.routeName: (context) => SignInScreen(),
-  HomePage.routeName: (context) => HomePage(),
 };
