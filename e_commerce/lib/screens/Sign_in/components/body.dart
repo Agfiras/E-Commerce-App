@@ -4,10 +4,11 @@ import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
 import '../../../components/socal_card.dart';
 import 'signin_form.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
-
+  Map? _userData;
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -52,7 +53,9 @@ class Body extends StatelessWidget {
                     ),
                     SocalCard(
                       icon: 'assets/icons/twitter.svg',
-                      press: () {},
+                      press: () {
+                        Fblogin();
+                      },
                     ),
                   ],
                 ),
@@ -63,6 +66,17 @@ class Body extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future Fblogin() async {
+    final result =
+        await FacebookAuth.i.login(permissions: ["public_profile", "email"]);
+
+    if (result.status == LoginStatus.success) {
+      final userData = await FacebookAuth.i.getUserData(
+        fields: "email,name",
+      );
+    }
   }
 
   Future StartSignin(context) async {
