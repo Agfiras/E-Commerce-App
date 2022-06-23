@@ -49,13 +49,13 @@ class Body extends StatelessWidget {
                     ),
                     SocalCard(
                       icon: 'assets/icons/facebook.svg',
-                      press: () {},
-                    ),
-                    SocalCard(
-                      icon: 'assets/icons/twitter.svg',
                       press: () {
                         Fblogin();
                       },
+                    ),
+                    SocalCard(
+                      icon: 'assets/icons/twitter.svg',
+                      press: () {},
                     ),
                   ],
                 ),
@@ -70,7 +70,7 @@ class Body extends StatelessWidget {
 
   Future Fblogin() async {
     final result =
-        await FacebookAuth.i.login(permissions: ["public_profile", "email"]);
+        await FacebookAuth.i.login(permissions: ["email", "public_profile"]);
 
     if (result.status == LoginStatus.success) {
       final userData = await FacebookAuth.i.getUserData(

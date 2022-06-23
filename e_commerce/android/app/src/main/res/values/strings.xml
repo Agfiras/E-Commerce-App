@@ -3,4 +3,6 @@
   <string name="app_name">E-commerce</string>
   <string name="facebook_app_id">884723825818264</string>
   <string name="fb_login_protocol_scheme">fb884723825818264</string>
+  <string name="facebook_client_token">c197e3a3dea3979a212f008408b50a72</string>
+
 </resources>
